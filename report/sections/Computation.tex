@@ -1,0 +1,24 @@
+{\color{gray}\hrule}
+\begin{center}
+\section{Efforts to Reduce Computational Time}
+% \textbf{Small description}
+\bigskip
+\end{center}
+{\color{gray}\hrule}
+\begin{multicols}{2}
+\subsection{Summary of computational time improvements}
+To efficiently conduct Monte Carlo simulations that exceed 1 million underlying asset price path simulations per valuation, we employed the C++ programming language for its superior performance capabilities over Python or R. However, as the scale of simulations further increased, the computational efficiency of the initial, unoptimized C++ implementation was proved to be inadequate. For instance, the computation time averaged 40.71 seconds to price a European put option with 10 million simulations. Such an evident decline in performance underscored the need for parallel programming techniques, specifically multithreading, to accelerate the computational process.
+
+Upon the implementation of the multithreading technique, as detailed in the subsequent section, the average computation time was reduced to 7.86 seconds, representing an approximate fivefold improvement in time efficiency. To achieve further acceleration, GPU programming frameworks like CUDA that leverage parallel processing within the GPU could be explored.
+\subsection{Methods employed to optimize code performance}
+\subsubsection{Multithreading}
+Multithreading is a parallel programming technique that divides the computation task into smaller independent subtasks that concurrently run on different CPU cores. This workload parallelization lowers the wall-clock time relative to single-thread execution. In the context of Monte Carlo simulations, this method enables faster computation by assigning a certain number of underlying asset price development simulations and the corresponding option contract valuation to each thread.
+
+We first determined the number of available logical cores supported by the system to evenly distribute the number of simulations among them. Once the threads are launched, each thread executes its subset of simulations independently and computes the option price and the corresponding statistics. To prevent data inconsistency due to multiple threads attempting to modify shared resources simultaneously, we used mutex (mutual exclusion) class to ensure thread-safe updates when accessing shared data structures. Once all threads complete their tasks, the main thread combines the results from each thread to compute the overall simulation statistics.
+\subsubsection{Memoization}
+Memoization is a computational optimization technique that reduces redundant calculations by storing previously computed results for reuse in subsequent operations. Memoization is employed while computing the American options using the Black-Scholes binomial tree method to store underlying asset prices and the previous step's option values during backward induction.
+
+A key property leveraged during the construction of the underlying asset price tree is the symmetry at each level. While computing the binomial underlying asset prices the upward and downward movements cancel out, ensuring $S \cdot u \cdot d = S$. This property reduces the need to compute all possible price levels at each iteration explicitly, as they can be derived from a single upward or downward step relative to the previous node.
+
+This approach significantly reduces the time and space complexity of the algorithm from exponential to quadratic.
+\end{multicols}

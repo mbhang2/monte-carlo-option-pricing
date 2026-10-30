@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+% Package to make citations superscrit with brackets
+\usepackage[super,square]{natbib}
+% Package to change margin size
+\usepackage{anysize}
+\usepackage{amsmath}
+\marginsize{2cm}{2cm}{1cm}{2cm}
+% Package to make headers
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+% Package for highligths
+\usepackage{soul}
+% Colors for the references links
+\usepackage[dvipsnames]{xcolor}
+% Package to link references
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=CadetBlue,
+    filecolor=CadetBlue,      
+    urlcolor=CadetBlue,
+}
+% Package for lorem ipsum
+\usepackage{lipsum}
+% Package for multicolumn
+\usepackage{multicol}
+% Package for removing paragraph identations
+\usepackage{parskip}
+\setlength\columnsep{18pt}
+% Sets bastract
+\renewenvironment{abstract}
+ {\par\noindent\textbf{\abstractname}\ \ignorespaces \\}
+ {\par\noindent\medskip}
+
+\usepackage{amssymb}
+\usepackage{tabularx} 
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+
+ 
+\begin{document}
+% Makes header
+\pagestyle{fancy}
+\thispagestyle{empty}
+\fancyhead[R]{\textit{IE522: Statistical Methods in Finance}}
+\fancyhead[L]{}
+% Makes footnotes with an asterisk
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\begin{center}
+\Large{\textbf{University of Illinois Urbana-Champaign}}
+\vspace{0.4cm}
+\normalsize
+\textit{}
+\medskip
+\normalsize
+\end{center}
+{\color{gray}\hrule}
+\vspace{0.4cm}
+\input{./Title.tex}
+{\color{gray}\hrule}
+\medskip
+\newpage
+\input{./sections/abstract.tex}
+\newpage
+\tableofcontents
+\newpage
+\input{./sections/Intro.tex}
+\newpage
+\input{./sections/Q1.tex}
+\newpage
+\input{./sections/Q2.tex}
+\newpage
+\input{./sections/Q3.tex}
+\newpage
+\input{./sections/Computation.tex}
+\newpage
+\input{./sections/Conclusion.tex}
+\newpage
+\input{./sections/Appendices.tex}
+\newpage
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

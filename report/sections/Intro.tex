@@ -1,0 +1,43 @@
+    {\color{gray}\hrule}
+\begin{center}
+\section{Introduction}
+% \textbf{You can add small descriptions of what the current sections describe}
+\bigskip
+\end{center}
+{\color{gray}\hrule}
+
+\begin{multicols}{2}
+Option pricing plays a vital role in finance, helping to value derivatives and manage risks effectively. Here, we focus on pricing three different options: European, Asian, and American using the Black Scholes Merton framework and Monte Carlo simulations. European options are simpler and based on a fixed payoff at maturity, Asian options depend on the average price of the underlying asset over time, and American options add complexity by allowing early exercise.
+\subsection{Background on the Monte Carlo methods for option pricing}
+Monte Carlo simulations are used for option pricing because they can handle complicated payoff scenarios and model a variety of predictons. We explore how Monte Carlo methods can be used to price these options, analyze their accuracy as sample sizes increase, and evaluate computational efficiency. We also implement techniques like antithetic variates, control variates, and Richardson extrapolation to improve results and performance. For American options, we compare the Longstaff-Schwartz\cite{VAOSSLSA} method with other approaches to understand their accuracy and effectiveness. Our report aims to provide practical insights into the strengths and limitations of these methods in option pricing.
+\subsection{Black Scholes Merton for option pricing}
+The Black-Scholes-Merton (BSM) model is one of the most widely used methods for pricing options. Introduced in the 1970s\cite{POCL}, it provides a formula to determine the fair price of an option. The model assumes that the price of an underlying asset follows a Brownian motion, with continuously compounded returns, constant volatility, and no arbitrage.
+
+For European options, the BSM model\cite{TBSM} calculates the price by estimating its expected payoff and discounting it at the risk free interest rate. For a call option, the price is given by the formula\cite{522SLIDES}:
+\[C = e^{-rT} \mathbb{E} [(S_T-K)^+]\]
+\[
+C = S_0 e^{-qT}\phi(d_+) - K e^{-rT} N(d_-)\]
+\[d_{\pm} = \frac{log(\frac{S0}{k}) + (r - q \pm \frac{1}{2}\tilde{\sigma}^2)T}{\tilde{\sigma}\sqrt{T}}\]
+\[\sigma = \tilde{\sigma}\sqrt{T}\]
+where:
+
+\begin{itemize}
+    \item \( S_0 \): The current price of the underlying asset
+    \item \( K \): The strike price of the option
+    \item \( T \): The time to maturity (in years)
+    \item \( r \): The risk-free interest rate
+    \item \( \sigma \): The volatility of the asset
+    \item \( \phi(d) \): The cumulative probability of \( d \) under a standard normal distribution.
+\end{itemize}
+\subsection{Objectives}
+Our goal is to explore and apply advanced numerical techniques for option pricing under the Black-Scholes-Merton framework. This includes evaluating the performance of Monte Carlo simulation methods for different types of options and implementing enhancements to improve computational efficiency.
+\begin{itemize}
+    \item To apply Monte Carlo simulations for pricing European, Asian, and American options under Black Scholes Merton model.
+    \item To analyze the convergence and accuracy of Monte Carlo methods as the sample size increases.
+    \item To evaluate computational efficiency and performance improvement through advanced techniques such as antithetic variates, control variates, and moment matching.
+    \item To compare the Longstaff-Schwartz method for pricing American options with the Binomial Black-Scholes with Richardson Extrapolation (BBSR) approach for accuracy.
+    \item To understand the impact of key parameters, such as the number of paths, time steps, and regressors, on the pricing accuracy and computational time.
+\end{itemize}
+
+
+\end{multicols}

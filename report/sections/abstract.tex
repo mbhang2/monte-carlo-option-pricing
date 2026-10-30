@@ -1,0 +1,15 @@
+{\color{gray}\hrule}
+\begin{center}
+\section{Abstract}
+\bigskip
+\end{center}
+{\color{gray}\hrule}
+\vspace{0.5cm}
+This study offers critical insights into the effectiveness and limitations of numerical methods for option pricing, contributing to their practical utility in financial modeling and risk management. We focus on using numerical methods to price three types of financial options: European vanilla put options, Asian call options, and American vanilla put options, using the Black Scholes Merton model. Each type of option comes with its own challenges, from handling price movement in Asian options to managing early exercise in an American option.
+
+For European and Asian options, we use Monte Carlo simulations to estimate the option price, enhanced through techniques such as antithetic variates, control variates, and moment matching to improve efficiency and reduce variance. For American options, the Longstaff-Schwartz method is employed to account for the early exercise option, and we compare its performance with the Binomial Black Scholes with Richardson Extrapolation (BBSR) method.
+
+The study explores how key parameters—sample size (\(N\)), time steps (\(M\)), and regression order (\(K_{\text{reg}}\))—affect the pricing accuracy, convergence, and computational efficiency of these numerical approaches. For European options, results show the theoretical convergence rates (\(1 / N\)) with a significant reduction in standard error and narrowing of confidence intervals as \(N\) increases. Asian options introduce path dependency, addressed through variance reduction and moment matching techniques, leading to improved precision in option estimates. For American options, the Longstaff-Schwartz method shows sensitivity to \(N\), \(M\), and \(K_{\text{reg}}\), but convergence to the BBSR benchmark highlights its effectiveness.
+
+Results from extensive numerical experiments reveal practical tradeoffs between accuracy and computational cost across all methods. The BBSR method emerges as a highly stable and accurate benchmark, particularly for American options, while the Longstaff-Schwartz method provides greater flexibility for complex derivatives. Recommendations are provided to balance computational efficiency and accuracy, along with future directions for integrating variance reduction techniques and parallelization which can improve the performance in real-world applications.
+

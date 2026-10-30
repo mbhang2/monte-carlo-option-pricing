@@ -1,0 +1,11 @@
+.DS_Store
+build/
+exec/
+report/*.aux
+report/*.log
+report/*.out
+report/*.fls
+report/*.fdb_latexmk
+report/*.bbl
+report/*.blg
+report/*.toc

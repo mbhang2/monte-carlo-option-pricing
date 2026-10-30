@@ -1,0 +1,31 @@
+{\color{gray}\hrule}
+\begin{center}
+\section{Conclusions}
+\bigskip
+\end{center}
+{\color{gray}\hrule}
+\vspace{0.5cm}
+Our main objective with this project was to explore the application of Monte Carlo simulations for pricing various types of options—European vanilla put options, Asian call options, and American vanilla put options—under the Black-Scholes-Merton framework. Alongside understanding option payoffs and their mathematical formulas, we also tried to improve computational cost and reduce variance using advanced numerical techniques.
+
+\begin{itemize}
+    \item \textbf{Monte Carlo Simulations:}  
+    Monte Carlo methods proved to be effective for estimating option prices, particularly for complex payoffs like Asian options and early-exercise option of American options. The simulations followed the expected theoretical convergence rate of \( \frac{1}{\sqrt{N}} \), with increasing sample sizes significantly reducing standard errors and tightening confidence intervals.
+
+    \item \textbf{Variance Reduction Techniques:}  
+    Advanced variance reduction methods such as \textbf{control variates}, \textbf{antithetic variates}, and \textbf{moment matching} were implemented to enhance accuracy and computational efficiency:
+    \begin{itemize}
+        \item \textbf{Control Variates:} Used known solutions, such as the geometric Asian call price, to reduce variance without adding bias to the results.
+        \item \textbf{Antithetic Variates:} Demonstrated their usefulness for pricing European options, reducing standard errors with minimal computational cost.
+        \item \textbf{Moment Matching:} Applied to the Asian call option, improved convergence by making sure the simulated moments aligned with theoretical moments.
+    \end{itemize}
+
+    \item \textbf{Longstaff-Schwartz Method and BBSR Comparison:}  
+    For American put options, the Longstaff-Schwartz Monte Carlo (LSM) method was compared with the Binomial Black-Scholes with Richardson Extrapolation (BBSR) approach.
+    \begin{itemize}
+        \item The \textbf{BBSR method} provided highly stable and accurate results.
+        \item The \textbf{LSM method}, though sensitive to parameters like sample size time steps, and regression order, converged to the BBSR values with computational effort.
+    \end{itemize}
+
+\end{itemize}
+
+This project not only deepened our understanding of Monte Carlo simulations for option pricing but also highlighted the importance of balancing numerical techniques with computational efficiency. By integrating numerical methods with optimized coding practices, we successfully developed a framework that can be applied to solve real-world financial problems efficiently and accurately.
